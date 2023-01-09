@@ -1,0 +1,105 @@
+@import "../../style-config/variable.scss";
+@import "../../style-config/mixins.scss";
+
+.project_showcase {
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  height: 100%;
+  justify-content: center;
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+    height: 100%;
+  }
+  .showcase_item {
+    width: 265px;
+    height: 265px;
+    overflow: hidden;
+    border-radius: 16px;
+    margin: 10px;
+    position: relative;
+    cursor: pointer;
+    @include transition;
+    @media only screen and (max-width: 768px) {
+      width: 150px;
+      height: 150px;
+      border-radius: 0;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .meta_content {
+      visibility: hidden;
+      opacity: 0;
+      position: absolute;
+      bottom: 0;
+      left: 20px;
+      padding: 10px;
+      margin-right: 20px;
+      border-radius: 10px;
+      @include glassmorphism-effect;
+      @include transition;
+      @media only screen and (max-width: 768px) {
+        visibility: visible;
+        opacity: 1;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 10px;
+        width: 100%;
+      }
+      h3 {
+        color: $black;
+        font-weight: 400;
+        margin-bottom: 10px;
+      }
+      .go_to_project {
+        display: flex;
+        align-items: center;
+        .text {
+          @include typography(10px, 400, 18px);
+        }
+      }
+    }
+    &.zoomIn {
+      transform: scale(0);
+      animation: zoomIn 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    &.zoomOut {
+      transform: scale(1);
+      animation: zoomOut 400ms cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+    &:hover {
+      z-index: 1;
+      transform: scale(1.2);
+      box-shadow: 0px 0px 33px -8px rgba(0, 0, 0, 0.75);
+      .meta_content {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(-20px);
+      }
+    }
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}

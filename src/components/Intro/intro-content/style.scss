@@ -1,0 +1,110 @@
+@import "../../style-config/variable.scss";
+@import "../../style-config/mixins.scss";
+.intro_content {
+  display: flex;
+  align-items: flex-end;
+  flex-grow: 1;
+  .layout {
+    display: flex;
+    padding: 10rem;
+    @media only screen and (max-width: 1029px) {
+      flex-direction: column-reverse;
+      padding: 1rem;
+    }
+    .left_col {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media only screen and (max-width: 1029px) {
+        width: 100%;
+      }
+      // @include large-screen {
+      //   padding-top: 0;
+      //   width: 37%;
+      // }
+      // @include medium-screen {
+      //   padding-top: 55px;
+      // }
+      .title {
+        display: flex;
+        flex-direction: column;
+        color: $white;
+        .small_text {
+          @include typography(42px, 400, 48px);
+          display: flex;
+          align-items: center;
+          @media only screen and (max-width: 768px) {
+            justify-content: center;
+            font-size: 32px;
+          }
+          .icon {
+            margin-left: 10px;
+          }
+        }
+        .big_text {
+          @include typography(62px, 400, 72px);
+          @media only screen and (max-width: 768px) {
+            line-height: 28px;
+            font-size: 42px;
+            text-align: center;
+          }
+        }
+        .sub_title{
+          font-size: 26px;
+          @media only screen and (max-width: 768px) {
+            line-height: 28px;
+            font-size: 16px;
+            text-align: center;
+            margin-top: 12px;
+          }
+        }
+      }
+      p {
+        color: $white;
+        @include typography(18px, 400, 24px);
+        margin: 25px 0;
+        @media only screen and (max-width: 768px) {
+          text-align: center;
+        }
+      }
+      .btn {
+        @media only screen and (max-width: 768px) {
+          display: flex;
+          justify-content: center;
+        }
+        & div {
+          @media only screen and (max-width: 768px) {
+            width: 90%;
+            border-radius: 2px;
+          }
+        }
+      }
+    }
+    .right_col {
+      width: 55%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      position: relative;
+      @media only screen and (max-width: 1029px) {
+        width: 100%;
+      }
+      & img {
+        width: 56%;
+        border-radius: 57%;
+        @media only screen and (max-width: 1029px) {
+          width: 33%;
+        }
+      }
+      // @include large-screen {
+      //   width: 63%;
+      // }
+      // @include medium-screen {
+      //   margin-bottom: 50px;
+      //   position: relative;
+      //   // right: -100px;
+      // }
+    }
+  }
+}

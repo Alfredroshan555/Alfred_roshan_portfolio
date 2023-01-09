@@ -1,0 +1,65 @@
+@import "../style-config/variable.scss";
+@import "../style-config/mixins.scss";
+
+.skills_container {
+  display: flex;
+  align-items: center;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+  .left_col {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    @media only screen and (max-width: 768px) {
+        width: auto;
+        padding: 3rem;
+      }
+    img {
+      width: 100%;
+      max-width: 453px;
+      display: block;
+    }
+  }
+  .right_col {
+    width: 60%;
+    color: $white;
+    margin-left: 70px;
+    @media only screen and (max-width: 768px) {
+      margin-left: 0;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 30px;
+    }
+    p {
+      @include typography(18px, 400, 24px);
+      margin-bottom: 15px;
+    }
+    .btn{
+      text-decoration: none;
+        @media only screen and (max-width: 768px) {
+            display: flex;
+        justify-content: center;
+        text-decoration: none;
+          }
+       
+    }
+    .download_button {
+      height: 47px;
+      width: 100%;
+      border-radius: 8px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 1;
+      background: #fff;
+      color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}

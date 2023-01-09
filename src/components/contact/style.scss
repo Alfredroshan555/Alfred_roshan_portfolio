@@ -1,0 +1,11 @@
+@import '../style-config/mixins.scss';
+@import '../style-config/variable.scss';
+
+.contact_content_wrapper{
+    display: flex;
+    align-items: center;
+    margin-top: 3rem;
+    @media only screen and (max-width: 1300px) {
+        flex-direction: column;
+      }
+}
