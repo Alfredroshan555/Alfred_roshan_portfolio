@@ -31,7 +31,10 @@ const Navbar = () => {
         <span className="nav_item" onClick={() => menuClickHandler("portfolio")}>Portfolio</span>
         
         <span className="call_to_action" onClick={() => menuClickHandler("contact")}>
-          <CallToAction text="Contact Now" />
+          {/* <CallToAction text="Contact Now" /> */}
+          <div className="btn">
+            Contact Now
+          </div>
         </span>
       </div>
     </div>
