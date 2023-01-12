@@ -27,7 +27,7 @@ const Navbar = () => {
         )}
       </div>
       <div className={`navbar ${mobileMenu ? "active" : ""}`}>
-        <span className="nav_item" onClick={() => menuClickHandler("skills")}>Skills</span>
+        <span className="nav_item" onClick={() => menuClickHandler("skills")}>Skills Sections</span>
         <span className="nav_item" onClick={() => menuClickHandler("portfolio")}>Portfolio</span>
         
         <span className="call_to_action" onClick={() => menuClickHandler("contact")}>
