@@ -1,37 +1,41 @@
-@import '../../style-config/mixins.scss';
-@import '../../style-config/variable.scss';
-.section{
-    padding: 100px 0;
+@import "../../style-config/mixins.scss";
+@import "../../style-config/variable.scss";
+.section {
+  padding: 100px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  z-index: 2;
+
+  &.dark {
+    color: inherit;
+  }
+  &.light {
+    background-color: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(5px);
+  }
+  .content {
+    width: 100%;
+    margin-left: 10rem;
+    margin-right: 10rem;
+    padding: 0 20px;
     position: relative;
     display: flex;
-    justify-content: center;
-    background-color: #232323;
-    & .dark{
+    align-items: center;
+    flex-direction: column;
+    @media only screen and (max-width: 768px) {
+      margin-left: 0;
+      margin-right: 0;
     }
-    & .light{
-        background-color: $black-light;
+    .section_title {
+      width: 100%;
+      @media only screen and (max-width: 768px) {
+        width: auto;
+      }
+      text-align: center;
+      color: $white;
+      max-width: 500px;
     }
-    .content{
-        width: 100%;
-        margin-left: 10rem;
-        margin-right: 10rem;
-        padding: 0 20px;
-        position: relative;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        @media only screen and (max-width: 768px) {
-            margin-left: 0;
-        margin-right: 0;
-          }
-        .section_title{
-            width: 100%;
-            @media only screen and (max-width: 768px) {
-                width: auto;
-              }
-            text-align: center;
-            color: $white;
-            max-width: 500px;
-        }
-    }
+  }
 }

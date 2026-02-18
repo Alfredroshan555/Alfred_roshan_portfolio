@@ -1,28 +1,42 @@
 @import "../../style-config/variable.scss";
 @import "../../style-config/mixins.scss";
 
-.contact_info_box{
-    background-color: $black-lighter;
-    width: auto;
-    padding: 30px;
-    border-radius: 6px;
-    color: $gray;
-    height: 100%;
-    h4{
-        line-height: 34px;
-        margin-bottom: 20px;
+.contact_info_box {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  padding: 2rem;
+  border-radius: 12px;
+  color: $text-secondary;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h4 {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    font-size: 24px;
+    color: $white;
+    font-weight: 500;
+  }
+
+  .contact_option {
+    display: flex;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    svg {
+      color: $text-accent;
+      font-size: 20px;
+      filter: drop-shadow(0 0 5px rgba(0, 242, 255, 0.5));
     }
-    .contact_option{
-        display: flex;
-        align-items: center;
-        margin-top: 15px;
-        svg{
-            color: $yellow;
-            font-size: 16px;
-        }
-        .text{
-            color: $white;
-            margin-left: 15px;
-        }
+
+    .text {
+      color: $white;
+      margin-left: 1rem;
+      font-size: 18px;
+      font-weight: 400;
     }
+  }
 }

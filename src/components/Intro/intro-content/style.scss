@@ -1,110 +1,140 @@
 @import "../../style-config/variable.scss";
 @import "../../style-config/mixins.scss";
+
 .intro_content {
   display: flex;
-  align-items: flex-end;
-  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+
   .layout {
     display: flex;
-    padding: 10rem;
-    @media only screen and (max-width: 1029px) {
-      flex-direction: column-reverse;
-      padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+
+    &.centered-layout {
+      text-align: center;
+      margin-top: -50px; // Visual balance
     }
-    .left_col {
-      width: 50%;
+
+    .center_col {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      @media only screen and (max-width: 1029px) {
-        width: 100%;
-      }
-      // @include large-screen {
-      //   padding-top: 0;
-      //   width: 37%;
-      // }
-      // @include medium-screen {
-      //   padding-top: 55px;
-      // }
+      align-items: center;
+      max-width: 800px;
+      margin: 0 auto;
+
       .title {
         display: flex;
         flex-direction: column;
         color: $white;
+        margin-bottom: 2rem;
+        align-items: center;
+
         .small_text {
-          @include typography(42px, 400, 48px);
+          font-size: 14px;
+          color: $text-secondary;
+          margin-bottom: 1.5rem;
+          font-weight: 500;
+          text-transform: uppercase;
+          letter-spacing: 4px;
+          opacity: 0.8;
+        }
+
+        .big_text {
+          font-size: 80px;
+          font-weight: 700;
+          line-height: 1.1;
+          margin-bottom: 0;
+          font-family: $base-font-family;
+
+          .gradient-text {
+            background: linear-gradient(
+              to right,
+              #fff 20%,
+              $text-secondary 100%
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+          }
+
+          @media only screen and (max-width: 768px) {
+            font-size: 48px;
+          }
+        }
+      }
+
+      .description {
+        color: $text-secondary;
+        font-size: 20px;
+        line-height: 1.6;
+        margin-bottom: 2.5rem;
+        max-width: 600px;
+        font-weight: 300;
+
+        .highlight {
+          color: $text-accent;
+          font-weight: 500;
+        }
+
+        @media only screen and (max-width: 768px) {
+          font-size: 16px;
+        }
+      }
+
+      .btn-wrapper {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+
+        .primary-btn {
+          background: $button-primary; // A vibrant purple
+          color: white;
+          padding: 14px 32px;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 0 20px rgba($button-primary, 0.4);
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba($button-primary, 0.6);
+            background: lighten($button-primary, 5%);
+          }
+        }
+
+        .secondary-btn {
           display: flex;
           align-items: center;
-          @media only screen and (max-width: 768px) {
-            justify-content: center;
-            font-size: 32px;
-          }
+          gap: 8px;
+          background: transparent;
+          color: $white;
+          padding: 14px 28px;
+          border-radius: 8px;
+          font-weight: 500;
+          font-size: 16px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+
           .icon {
-            margin-left: 10px;
+            font-size: 18px;
           }
-        }
-        .big_text {
-          @include typography(62px, 400, 72px);
-          @media only screen and (max-width: 768px) {
-            line-height: 28px;
-            font-size: 42px;
-            text-align: center;
-          }
-        }
-        .sub_title{
-          font-size: 26px;
-          @media only screen and (max-width: 768px) {
-            line-height: 28px;
-            font-size: 16px;
-            text-align: center;
-            margin-top: 12px;
+
+          &:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.4);
           }
         }
       }
-      p {
-        color: $white;
-        @include typography(18px, 400, 24px);
-        margin: 25px 0;
-        @media only screen and (max-width: 768px) {
-          text-align: center;
-        }
-      }
-      .btn {
-        @media only screen and (max-width: 768px) {
-          display: flex;
-          justify-content: center;
-        }
-        & div {
-          @media only screen and (max-width: 768px) {
-            width: 90%;
-            border-radius: 6px;
-          }
-        }
-      }
-    }
-    .right_col {
-      width: 55%;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      position: relative;
-      @media only screen and (max-width: 1029px) {
-        width: 100%;
-      }
-      & img {
-        width: 56%;
-        border-radius: 57%;
-        @media only screen and (max-width: 1029px) {
-          width: 33%;
-        }
-      }
-      // @include large-screen {
-      //   width: 63%;
-      // }
-      // @include medium-screen {
-      //   margin-bottom: 50px;
-      //   position: relative;
-      //   // right: -100px;
-      // }
     }
   }
 }

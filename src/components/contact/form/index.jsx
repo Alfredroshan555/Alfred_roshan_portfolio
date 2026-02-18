@@ -1,10 +1,10 @@
 import React from "react";
-import "./style.scss";
-
 import { send } from "emailjs-com";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./style.scss";
+import { motion } from "framer-motion";
 
 const Form = () => {
   const {
@@ -20,24 +20,32 @@ const Form = () => {
         formSuccess();
       })
       .catch((err) => {
+        toast.error("Failed to submit form!!");
+        document.getElementById("queryForm").reset();
         console.log("Failed!", err);
       });
   };
 
   const formSuccess = () => {
-    toast("Thanks for submitting!!");
+    toast.success("Thanks for submitting!!");
     document.getElementById("queryForm").reset();
   };
 
   return (
-    <div className="query_form">
-      <ToastContainer />
+    <motion.div
+      className="query_form"
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+    >
+      <ToastContainer position="bottom-right" theme="dark" />
       <form id="queryForm" onSubmit={handleSubmit(onSubmit)}>
         <div className="input_field">
           <input
             type="text"
             name="form_name"
-            placeholder="Enter Name"
+            placeholder="Name"
             {...register("form_name", {
               required: "Name is required!",
             })}
@@ -67,7 +75,7 @@ const Form = () => {
           <input
             type="text"
             name="phone_number"
-            placeholder="PhoneNumber"
+            placeholder="Phone Number"
             {...register("phone_number", {
               required: "Phone number is required!",
               minLength: {
@@ -84,12 +92,12 @@ const Form = () => {
           <input
             type="text"
             name="subject"
-            placeholder="Enter your Query!! Here !!"
+            placeholder="Subject"
             {...register("subject", {
               required: "Subject is required!",
               minLength: {
                 value: 8,
-                message: "minimum 10 characters required",
+                message: "Minimum 10 characters required",
               },
             })}
           />
@@ -118,9 +126,9 @@ const Form = () => {
             <p className="error">{errors.message?.message}</p>
           )}
         </div>
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
-    </div>
+    </motion.div>
   );
 };
 

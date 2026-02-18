@@ -1,0 +1,250 @@
+@import "../style-config/variable.scss";
+@import "../style-config/mixins.scss";
+
+.work-experience-section {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+
+  .experience-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+
+    h2 {
+      @include typography(48px, 700, 1.2);
+      margin-bottom: 16px;
+      color: $text-primary;
+    }
+
+    p {
+      color: $text-secondary;
+      @include typography(18px, 400, 1.5);
+    }
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding-left: 30px;
+
+    @include small-screen {
+      padding-left: 0; // Centered logic if needed, but keeping simple vertical for now
+    }
+
+    .timeline-line {
+      position: absolute;
+      left: 39px; // Adjust based on dot position
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      background: $gradient-primary;
+      opacity: 0.3;
+
+      @include small-screen {
+        left: -20px; // Move line outside for desktop if needed, aligning with dots
+      }
+    }
+
+    // Override generic mixin for this specific layout
+    @include medium-screen {
+      .timeline-line {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    cursor: pointer;
+
+    // For alternating layout on desktop
+    @include medium-screen {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      padding-right: 50%; // Push to left side
+
+      &:nth-child(even) {
+        justify-content: flex-end;
+        padding-right: 0;
+        padding-left: 50%; // Push to right side
+
+        .timeline-dot {
+          left: -9px; // Reset
+          right: auto;
+        }
+
+        .timeline-content {
+          // Right side content
+          margin-left: 30px;
+          margin-right: 0;
+        }
+      }
+
+      &:nth-child(odd) {
+        .timeline-content {
+          margin-right: 30px;
+        }
+        .timeline-dot {
+          right: -9px;
+          left: auto;
+        }
+      }
+    }
+
+    .timeline-dot {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: $text-accent;
+      border-radius: 50%;
+      top: 24px;
+      left: -29px; // Mobile alignment
+      z-index: 2;
+      box-shadow: 0 0 10px rgba($text-accent, 0.5);
+      transition: all 0.3s ease;
+
+      @include medium-screen {
+        left: auto;
+        // Positioned via flexbox logic above
+        top: 24px;
+      }
+    }
+
+    &:hover .timeline-dot,
+    &.active .timeline-dot {
+      background: $text-accent-secondary;
+      box-shadow: 0 0 15px rgba($text-accent-secondary, 0.8);
+      transform: scale(1.2);
+    }
+
+    .timeline-content {
+      @include glassmorphism-effect;
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transition: all 0.3s ease;
+      background: rgba(15, 15, 20, 0.6); // Slightly darker for contrast
+
+      &:hover {
+        border-color: rgba($text-accent, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .content-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .role-company {
+          h3 {
+            @include typography(20px, 600, 1.3);
+            color: $text-primary;
+            margin-bottom: 4px;
+          }
+
+          .company-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: $text-accent;
+            font-size: 14px;
+            font-weight: 500;
+          }
+        }
+
+        .period-toggle {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          .period {
+            color: $text-secondary;
+            font-size: 14px;
+            @media (max-width: 768px) {
+              display: none; // Hide on mobile, show below
+            }
+          }
+
+          .toggle-icon {
+            color: $text-secondary;
+            transition: transform 0.3s ease;
+          }
+        }
+      }
+
+      .location-mobile {
+        display: none;
+        align-items: center;
+        gap: 8px;
+        margin-top: 8px;
+        color: $text-secondary;
+        font-size: 13px;
+
+        @media (max-width: 768px) {
+          display: flex;
+        }
+      }
+
+      .content-details {
+        overflow: hidden;
+        margin-top: 0; // Handled by animation padding if needed, or margin-top of inner elements
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 16px 0;
+
+          li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: $text-secondary;
+            font-size: 15px;
+            line-height: 1.5;
+
+            &::before {
+              content: "▹";
+              position: absolute;
+              left: 0;
+              color: $text-accent-secondary;
+            }
+          }
+        }
+
+        .tech-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          margin-top: 16px;
+
+          .tech-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: $text-accent-secondary;
+            font-weight: 500;
+            transition: all 0.2s;
+
+            &:hover {
+              background: rgba(45, 85, 255, 0.1);
+              border-color: $text-accent;
+              color: $text-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+}

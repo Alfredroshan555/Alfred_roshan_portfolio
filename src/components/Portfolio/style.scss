@@ -1,7 +1,11 @@
+@import "../style-config/mixins.scss";
+@import "../style-config/variable.scss";
 
-@import '../style-config/mixins.scss';
-@import '../style-config/variable.scss';
-.portfolio{
-    background-color: black;
-    width: 100%;
+.portfolio {
+  width: 100%;
+  position: relative;
+  padding-bottom: 4rem;
+
+  // Optional: Add subtle background pattern or gradient if desired,
+  // but main background is handled by global body or section wrapper.
 }

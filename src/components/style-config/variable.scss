@@ -1,8 +1,32 @@
-$white: #fff;
-$gray: #989898;
-$black: #000;
-$black-light: #131313;
-$black-lighter: #232323;
-$yellow: #ffdb44;
+// Cyber-Fluid Theme Color Palette
+$primary-bg: #030303;
+$secondary-bg: #0a0a0a;
+$card-bg: rgba(255, 255, 255, 0.03);
 
-$base-font-family: "DM Sans", sans-serif;
+$text-primary: #ffffff;
+$text-secondary: #a1a1aa;
+$text-accent: #2d55ff;
+$text-accent-secondary: #00ff94;
+$text-accent-tertiary: #ff0055;
+
+$white: #fff;
+$black: #000;
+$gray: #9ca3af;
+$button-primary: #6a00ff;
+
+// Gradients
+$gradient-primary: linear-gradient(135deg, #2d55ff 0%, #00ff94 100%);
+$gradient-glass: linear-gradient(
+  145deg,
+  rgba(255, 255, 255, 0.05) 0%,
+  rgba(255, 255, 255, 0.01) 100%
+);
+$gradient-text-fluid: linear-gradient(
+  90deg,
+  #ffffff 0%,
+  #2d55ff 50%,
+  #00ff94 100%
+);
+
+$base-font-family: "Space Grotesk", sans-serif;
+$body-font-family: "Inter", sans-serif;

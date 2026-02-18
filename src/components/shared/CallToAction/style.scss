@@ -1,20 +1,29 @@
-@import "../../style-config/mixins.scss";
 @import "../../style-config/variable.scss";
+@import "../../style-config/mixins.scss";
 
 .call_to_Action {
-  height: 47px;
-  width: fit-content;
-  padding: 0 15px;
-  background: $white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: $black-light;
+  padding: 14px 32px;
+  background: $button-primary;
+  color: $white;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
+  text-transform: none; // Removing uppercase to match Intro
+  letter-spacing: normal;
+  box-shadow: 0 0 20px rgba($button-primary, 0.4);
+  @include transition-ease;
+  display: inline-block;
   position: relative;
   overflow: hidden;
-  border-radius: 6px;
-  @include typography(18px, 400, 1);
+  border: none;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba($button-primary, 0.6);
+    background: lighten($button-primary, 5%);
+  }
+
   @media only screen and (max-width: 768px) {
     border-radius: 6px;
     width: 90%;

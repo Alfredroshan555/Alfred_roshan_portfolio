@@ -1,0 +1,10 @@
+.cursor {
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
+}
+.cursor-dot {
+  @media (hover: none) and (pointer: coarse) {
+    display: none;
+  }
+}

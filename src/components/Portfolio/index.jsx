@@ -1,109 +1,71 @@
-import React, { useState } from "react";
+import React from "react";
 import "./style.scss";
 import Section from "../shared/Section";
-import Filters from "./filters";
 import Showcase from "./showcase";
 
 const projectsData = [
   {
     id: 1,
-    name: "Blog App - Firebase",
-    tags: ["web-app", "mobile-app"],
+    name: "ESG Sustainability Platform",
+    tags: ["Full Stack", "Next.js", "Node.js"],
     media: {
+      // Using existing placeholder if available, else text will fallback or breaks. I should use a safe path or just text if image fails. The user had some thumb-4.jpg commented out. I'll assume standard naming or use a generic holder.
+      // actually, let's use a reliable placeholder service if local images are missing, or repeat existing ones.
+      // Since I can't verify local files existence easily for all variants, and I saw thumb-4.jpg in comments, I'll try to use what was there or the blog/netflix ones as placeholders for now.
       thumbnail: require("../../images/portfolio/blog App.png"),
     },
-    url:"https://blog-app-next.netlify.app/"
+    url: "https://github.com/Alfredroshan555", // Placeholder URL
+    description:
+      "Large-scale sustainability report management platform with ESG data pipelines, analytics dashboards, and compliance tracking.",
+    tech: ["Next.js", "Node.js", "MongoDB", "Redux", "Ant Design"],
   },
   {
     id: 2,
-    name: "User-Management-System-Geektrust",
-    tags: ["web-page"],
+    name: "Financial Audit Management System",
+    tags: ["Vue.js", "Azure", "CosmosDB"],
     media: {
       thumbnail: require("../../images/portfolio/usermanagement-system.png"),
     },
-    url:"https://admin-panel-react-geektrust.netlify.app/"
+    url: "https://github.com/Alfredroshan555",
+    description:
+      "Comprehensive audit management platform with secure workflows, compliance tracking, and real-time collaboration features.",
+    tech: ["Vue.js", "Node.js", "CosmosDB", "Azure"],
   },
   {
     id: 3,
-    name: "User-Management-System",
-    tags: ["web-page"],
-    media: {
-      thumbnail: require("../../images/portfolio/user.png"),
-    },
-    url:"https://user-managemen-app-react.netlify.app/"
-  },
-  {
-    id: 4,
-    name: "Netflix-Clone-React-Firebase",
-    tags: ["web-app", "mobile-app"],
-    media: {
-      thumbnail: require("../../images/portfolio/netflix.png"),
-    },
-    url:"https://netflix-clone-react-tailwind.netlify.app/"
-  },
-  {
-    id: 5,
-    name: "Teerex Ecommerce Store",
-    tags: ["web-app", "web-page"],
+    name: "EV Charging App Backend",
+    tags: ["Backend", "NestJS", "PostgreSQL"],
     media: {
       thumbnail: require("../../images/portfolio/teerex.png"),
     },
-    url:"https://teerex-store-ecommerce-geektrust.netlify.app/"
+    url: "https://github.com/Alfredroshan555",
+    description:
+      "Scalable backend service for EV charging station management with real-time availability tracking and payment processing.",
+    tech: ["NestJS", "PostgreSQL", "TypeScript", "REST API"],
   },
-  // {
-  //   id: 6,
-  //   name: "Dashboard",
-  //   tags: ["product", "web-app", "mobile-app"],
-  //   media: {
-  //     thumbnail: require("../../images/portfolio/thumb-4.jpg"),
-  //   },
-  // },
-  // {
-  //   id: 7,
-  //   name: "Digital Creative Agency",
-  //   tags: ["web-app"],
-  //   media: {
-  //     thumbnail: require("../../images/portfolio/thumb-3.jpg"),
-  //   },
-  // },
-  // {
-  //   id: 8,
-  //   name: "Virtual Reality Experience",
-  //   tags: ["web-app", "mobile-app", "web-page"],
-  //   media: {
-  //     thumbnail: require("../../images/portfolio/thumb-5.jpg"),
-  //   },
-  // },
+  {
+    id: 4,
+    name: "Netflix Clone",
+    tags: ["React", "Firebase"],
+    media: {
+      thumbnail: require("../../images/portfolio/netflix.png"),
+    },
+    url: "https://netflix-clone-react-tailwind.netlify.app/",
+    tech: ["React", "Firebase", "Tailwind CSS"],
+  },
 ];
 
 const Portfolio = () => {
-  const [projects, setProjects] = useState(projectsData);
-  const [transition, setTransition] = useState(false);
-
-  const filterProjects = (tag) => {
-    setTransition("zoomout")
-    setTimeout(() => {
-      if (tag !== "all") {
-        const filteredData = projectsData.filter((data) =>
-          data.tags.includes(tag)
-        );
-        setProjects(filteredData);
-      } else {
-        setProjects(projectsData);
-      }
-      setTransition("zoomin")
-    }, 200);
-
-    setTimeout(() => {
-      setTransition(false)
-    }, 600);
-  };
-
   return (
-    <Section id="portfolio" title="Check My Portfolio" background="light" className="portfolio">
+    <Section
+      id="portfolio"
+      title="Featured Projects"
+      description="Notable projects I've worked on throughout my career"
+      background="light"
+      className="portfolio"
+    >
       <div className="portfolio">
-        <Filters filterProjects={(tag) => filterProjects(tag)} />
-        <Showcase data={projects} transition={transition} />
+        <Showcase data={projectsData} />
       </div>
     </Section>
   );

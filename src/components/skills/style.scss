@@ -1,68 +1,116 @@
-@import "../style-config/variable.scss";
 @import "../style-config/mixins.scss";
+@import "../style-config/variable.scss";
 
 .skills_container {
-  display: flex;
-  align-items: center;
-  @media only screen and (max-width: 768px) {
-    flex-direction: column;
-  }
-  .left_col {
-    width: 40%;
+  padding: 50px 0;
+
+  .content_wrapper {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    @media only screen and (max-width: 768px) {
-      width: auto;
-      padding: 3rem;
-    }
-    img {
-      width: 100%;
-      max-width: 453px;
-      display: block;
-    }
-  }
-  .right_col {
-    width: 60%;
-    color: $white;
-    margin-left: 70px;
-    @media only screen and (max-width: 768px) {
-      margin-left: 0;
-      text-align: center;
-      width: 100%;
-    }
-    h2 {
-      margin-bottom: 30px;
-    }
-    p {
-      @include typography(18px, 400, 24px);
-      margin-bottom: 15px;
-    }
-    .btn {
-      text-decoration: none;
-      @media only screen and (max-width: 768px) {
-        display: flex;
-        justify-content: center;
-        text-decoration: none;
-       
-      }
-    
-    }
-    .download_button {
-      height: 47px;
-      width: 100%;
-      border-radius: 2px;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 1;
-      background: #fff;
-      color: black;
-      display: flex;
-      justify-content: center;
+    flex-direction: column;
+    gap: 50px;
+
+    @include medium-screen {
+      flex-direction: row;
       align-items: center;
-      cursor: pointer;
-      width: 90%;
+      justify-content: space-between;
+    }
+
+    .text_col {
+      flex: 1;
+      padding-right: 0;
+
+      @include medium-screen {
+        padding-right: 50px;
+        max-width: 40%;
+      }
+
+      h2 {
+        @include typography(36px, 700, 1.2);
+        margin-bottom: 20px;
+        background: $gradient-text-fluid;
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      p {
+        color: $text-secondary;
+        margin-bottom: 30px;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .badge-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        @include glassmorphism-effect;
+
+        span {
+          background: rgba($text-accent, 0.1);
+          color: $text-accent-secondary;
+          padding: 6px 14px;
+          border-radius: 20px;
+          font-size: 14px;
+          border: 1px solid rgba($text-accent, 0.2);
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .grid_col {
+      flex: 1.5;
+      width: 100%;
+
+      .skills_grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); // Default mobile
+        gap: 15px;
+
+        @include small-screen {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 20px;
+        }
+
+        .skill_item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 20px 10px;
+          border-radius: 12px;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          background: rgba(255, 255, 255, 0.03);
+          border: 1px solid transparent;
+
+          .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+
+          .name {
+            color: $text-primary;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+          }
+
+          &:hover {
+            transform: translateY(-5px);
+            .icon {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
     }
   }
 }
