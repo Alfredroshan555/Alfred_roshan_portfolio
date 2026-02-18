@@ -2,7 +2,6 @@ import "./App.scss";
 import Intro from "./components/Intro/intro";
 import About from "./components/About";
 import Skills from "./components/skills";
-import Portfolio from "./components/Portfolio";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 import FluidBackground from "./components/shared/Background/FluidBackground";

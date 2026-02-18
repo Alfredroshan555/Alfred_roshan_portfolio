@@ -1,13 +1,7 @@
 import React, { useState } from "react";
 import "./style.scss";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  FaHome,
-  FaCode,
-  FaEnvelope,
-  FaProjectDiagram,
-  FaBriefcase,
-} from "react-icons/fa";
+import { FaHome, FaCode, FaEnvelope, FaBriefcase } from "react-icons/fa";
 import { scrollIntoSection } from "../utils/common";
 
 const navItems = [

@@ -1,23 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.4b431a3d.css",
-    "main.js": "/static/js/main.1d9f0bc5.js",
-    "static/media/netflix.png": "/static/media/netflix.43d62f4eee5ad2ea2187.png",
-    "static/media/teerex.png": "/static/media/teerex.1857b9771070128c7c35.png",
+    "main.css": "/static/css/main.e8374e4f.css",
+    "main.js": "/static/js/main.98e75f5e.js",
     "static/media/vector-background.png": "/static/media/vector-background.17fff8ffdaaf3dcfe71c.png",
-    "static/media/blog App.png": "/static/media/blog App.4f8bf95cff86dce6b5ca.png",
-    "static/media/tech-icons.png": "/static/media/tech-icons.bba568408fb42fa031c8.png",
-    "static/media/usermanagement-system.png": "/static/media/usermanagement-system.051f2c7616f02b05e205.png",
-    "static/media/user.png": "/static/media/user.5cda638bfedca02a7542.png",
-    "static/media/alfred.jpg": "/static/media/alfred.91f9b6c2d3c91c34bb50.jpg",
-    "static/media/cloud-soft.png": "/static/media/cloud-soft.4a7c46b961e63488802b.png",
-    "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/index.html",
-    "main.4b431a3d.css.map": "/static/css/main.4b431a3d.css.map",
-    "main.1d9f0bc5.js.map": "/static/js/main.1d9f0bc5.js.map"
+    "main.e8374e4f.css.map": "/static/css/main.e8374e4f.css.map",
+    "main.98e75f5e.js.map": "/static/js/main.98e75f5e.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b431a3d.css",
-    "static/js/main.1d9f0bc5.js"
+    "static/css/main.e8374e4f.css",
+    "static/js/main.98e75f5e.js"
   ]
 }
