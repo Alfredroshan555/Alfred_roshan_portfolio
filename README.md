@@ -1,70 +1,93 @@
-# Getting Started with Create React App
+# Alfred Roshan | Full-Stack Software Engineer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my professional portfolio! This project is a modern, high-performance web application designed to showcase my journey, skills, work experience, and personal products.
 
-## Available Scripts
+## 🚀 Live Demo
 
-In the project directory, you can run:
+[Link to your hosted portfolio if available]
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠️ Tech Stack & Architecture
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This portfolio is built with a focus on **Visual Excellence**, **Performance**, and **Responsiveness**.
 
-### `npm test`
+### Core Technologies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React 18**: Used for building a component-based, modular UI.
+- **SCSS (Sass)**: Leveraged for advanced styling with variables, mixins, and nested rules for a clean design system.
+- **React Router 7**: Implemented for seamless client-side navigation between the Home and Projects pages.
 
-### `npm run build`
+### Key Libraries & Tools
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Framer Motion**: Powering all high-end animations, including the glassmorphism effects, spring transitions, and the interactive dock.
+- **React Icons**: A comprehensive set of icons (Font Awesome, Simple Icons, etc.) for a modern look.
+- **React Hook Form**: Handles contact form logic with efficient, uncontrolled components.
+- **EmailJS**: Integrated for direct email communication from the contact section without a dedicated backend.
+- **React Toastify**: Provides elegant notifications for form submissions.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✨ Features
 
-### `npm run eject`
+- **Multi-page Navigation**: Dedicated Home and Projects pages for better content organization.
+- **Interactive Floating Dock**: A macOS-inspired dock for quick navigation across the site.
+- **Fluid Background**: A dynamic, animated background that follows the brand aesthetic.
+- **Glassmorphism Design**: Modern, translucent UI elements for a premium feel.
+- **Responsive Layout**: Optimized for all screen sizes from mobile to large desktop displays.
+- **Custom Cursor**: A unique interactive cursor implementation for enhanced UX.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 📁 Project Showcase
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The **Projects** section (accessible via the Dock) features several of my key works:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Personal Task Scheduler**: A full-stack mobile application (React Native/Node.js).
+- **Financial Audit System**: A professional compliance tracking platform.
+- **EV Charging Backend**: Scalable microservices built with NestJS.
+- **Netflix Clone**: A UI-focused React implementation with Firebase.
+- **MingMorsel & BabyGuard**: Specialized products for food delivery and real-time monitoring.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠️ Local Development
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To run this project locally:
 
-### Code Splitting
+1. **Clone the repository**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   git clone https://github.com/Alfredroshan555/Alfred-portfolio.git
+   ```
 
-### Analyzing the Bundle Size
+2. **Navigate to the project directory**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   ```bash
+   cd Alfred-portfolio/Portfolio
+   ```
 
-### Making a Progressive Web App
+3. **Install dependencies**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+   ```bash
+   npm install
+   ```
 
-### Advanced Configuration
+4. **Start the development server**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+   ```bash
+   npm start
+   ```
 
-### Deployment
+5. **Open the browser**:
+   Navigate to `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 📬 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to reach out via the Contact section on the website or connect with me on [GitHub](https://github.com/Alfredroshan555).
+
+---
+
+© 2026 Alfred Roshan. Built with ❤️ and React.
