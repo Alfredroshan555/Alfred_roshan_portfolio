@@ -22,7 +22,7 @@ const projectsData = [
     },
     url: "https://github.com/Alfredroshan555/Personal-Task-Scheduler",
     description:
-      "Personal Task Scheduler is a full-stack application that allows users to create and manage their tasks, set reminders, and track their progress.",
+      "Personal Task Scheduler is a full-stack application that allows user to create and manage their tasks, set reminders, and track their progress.",
     tech: ["React Native", "Node.js", "MongoDB", "Express"],
   },
   {
