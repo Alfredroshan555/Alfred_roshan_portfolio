@@ -1,3 +1,4 @@
+import { Routes, Route } from "react-router-dom";
 import "./App.scss";
 import Intro from "./components/Intro/intro";
 import About from "./components/About";
@@ -7,6 +8,7 @@ import Footer from "./components/footer";
 import FluidBackground from "./components/shared/Background/FluidBackground";
 import Cursor from "./components/shared/Cursor";
 import Dock from "./components/Dock";
+import Portfolio from "./components/Portfolio";
 
 import WorkExperience from "./components/WorkExperience";
 
@@ -16,12 +18,22 @@ function App() {
       <Cursor />
       <FluidBackground />
 
-      <Intro />
-      <About />
-      <Skills />
-      <WorkExperience />
-      {/* <Portfolio /> */}
-      <Contact />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Intro />
+              <About />
+              <Skills />
+              <WorkExperience />
+              <Contact />
+            </>
+          }
+        />
+        <Route path="/projects" element={<Portfolio />} />
+      </Routes>
+
       <Footer />
       <Dock />
     </div>

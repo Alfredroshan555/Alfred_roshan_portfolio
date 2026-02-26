@@ -1,11 +1,58 @@
 @import "../style-config/mixins.scss";
 @import "../style-config/variable.scss";
 
-.portfolio {
+.portfolio_page {
   width: 100%;
   position: relative;
-  padding-bottom: 4rem;
+  min-height: 100vh;
+  padding-bottom: 8rem !important;
 
-  // Optional: Add subtle background pattern or gradient if desired,
-  // but main background is handled by global body or section wrapper.
+  .portfolio_header {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: flex-start;
+
+    .back_link {
+      cursor: pointer;
+      color: $text-accent;
+      font-weight: 500;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.05);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: translateX(-5px);
+      }
+    }
+  }
+
+  .portfolio_content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .portfolio_footer {
+    margin-top: 5rem;
+    text-align: center;
+    color: $text-secondary;
+    font-size: 16px;
+
+    a {
+      color: $text-accent;
+      text-decoration: none;
+      font-weight: 600;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }

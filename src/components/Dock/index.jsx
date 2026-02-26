@@ -1,20 +1,29 @@
 import React, { useState } from "react";
 import "./style.scss";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaHome, FaCode, FaEnvelope, FaBriefcase } from "react-icons/fa";
+import {
+  FaHome,
+  FaCode,
+  FaEnvelope,
+  FaBriefcase,
+  FaProjectDiagram,
+} from "react-icons/fa";
 import { scrollIntoSection } from "../utils/common";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const navItems = [
   { id: "intro", icon: <FaHome />, label: "Home" },
   { id: "skills", icon: <FaCode />, label: "Skills" },
   { id: "experience", icon: <FaBriefcase />, label: "Experience" },
-  // { id: "portfolio", icon: <FaProjectDiagram />, label: "Projects" },
+  { id: "portfolio", icon: <FaProjectDiagram />, label: "Projects" },
   { id: "contact", icon: <FaEnvelope />, label: "Contact" },
 ];
 
 const Dock = () => {
   const [hovered, setHovered] = useState(null);
   const [isVisible, setIsVisible] = useState(true);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -28,6 +37,23 @@ const Dock = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleNavItemClick = (id) => {
+    if (id === "portfolio") {
+      navigate("/projects");
+      window.scrollTo(0, 0);
+    } else {
+      if (location.pathname !== "/") {
+        navigate("/");
+        // Give time for navigation to complete before scrolling
+        setTimeout(() => {
+          scrollIntoSection(id);
+        }, 100);
+      } else {
+        scrollIntoSection(id);
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -48,7 +74,7 @@ const Dock = () => {
             className="dock-item"
             onHoverStart={() => setHovered(item.id)}
             onHoverEnd={() => setHovered(null)}
-            onClick={() => scrollIntoSection(item.id)}
+            onClick={() => handleNavItemClick(item.id)}
             whileHover={{ scale: 1.2, y: -10 }}
             whileTap={{ scale: 0.9 }}
           >
