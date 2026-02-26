@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style.scss";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Showcase = ({ data, transition }) => {
+const Showcase = ({ data }) => {
+  const [loadedImages, setLoadedImages] = useState({});
+
+  const handleImageLoad = (id) => {
+    setLoadedImages((prev) => ({ ...prev, [id]: true }));
+  };
+
   return (
     <motion.div layout className="project_showcase">
       <AnimatePresence>
@@ -19,7 +25,19 @@ const Showcase = ({ data, transition }) => {
             whileHover={{ y: -10 }}
           >
             <div className="thumbnail_wrapper">
-              <img src={project.media.thumbnail} alt={project.name} />
+              {!loadedImages[project.id] && (
+                <div className="skeleton_loader"></div>
+              )}
+              <img
+                src={project.media.thumbnail}
+                alt={project.name}
+                loading="lazy"
+                onLoad={() => handleImageLoad(project.id)}
+                style={{
+                  opacity: loadedImages[project.id] ? 1 : 0,
+                  transition: "opacity 0.4s ease-in-out",
+                }}
+              />
               <div className="hover_overlay">
                 <span className="text">View Project</span>
               </div>

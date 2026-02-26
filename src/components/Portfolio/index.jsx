@@ -5,7 +5,7 @@ import Showcase from "./showcase";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-import schedulerThumb from "../../images/scheduler.jpg";
+import schedulerThumb from "../../images/scheduler.webp";
 import userMgmtThumb from "../../images/portfolio/usermanagement-system.png";
 import teerexThumb from "../../images/portfolio/teerex.png";
 import netflixThumb from "../../images/portfolio/netflix.png";
