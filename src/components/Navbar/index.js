@@ -3,7 +3,7 @@ import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import "./style.scss";
 
 const links = [
-  { id: "about", label: "About" },
+  // { id: "about", label: "About" },
   { id: "workflow", label: "How I work" },
   { id: "experience", label: "Experience" },
 ];
@@ -46,13 +46,13 @@ const Navbar = () => {
         </nav>
 
         <div className="header-actions">
-          <button
+          {/* <button
             className="icon-btn"
             aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             {theme === "dark" ? <FiSun /> : <FiMoon />}
-          </button>
+          </button> */}
           <a href="#contact" className="btn btn-primary btn-sm cta">
             Let's talk
           </a>

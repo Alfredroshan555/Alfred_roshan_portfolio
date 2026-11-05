@@ -19,7 +19,8 @@ export const profile = {
 export const highlights = [
   "6+ years shipping production enterprise grade apps",
   "10 Years of software industry knowledge building custom solutions",
-  "LLMs & agents from prototype to production",
+  // "Agentic workflow and AI driven development with precision",
+  "LLMs & agentic workflow from prototype to production",
   // "Based in Kochi, open to remote",
 ];
 
@@ -92,10 +93,11 @@ export const experience = [
     location: "Kochi",
     period: "Aug 2024 – Present",
     desc: [
-      "Led full-stack rewrite of a large-scale sustainability report management platform using Next.js and Node.js",
-      "Designed microservices architecture and RESTful APIs with optimized MongoDB queries",
-      "Achieved 50% faster page loads through performance optimization",
-      "Built ESG data pipelines, dashboards, and EV charging app backend using NestJS and PostgreSQL",
+      "Lead full-stack delivery of large-scale enterprise applications on React (Next.js), NestJS and MongoDB serving 4 million users, owning architecture and code-quality standards.",
+      "Led full-stack rewrite of a large-scale sustainability report management platform using Next.js and Node.js leveraging AI assisted development workflows and agents.",
+      "Designed automated report-generation pipeline that cut load time and saved hours by 60%.",
+      "Introduced AI-assisted development (Claude Code agents, prompt templates) into the team workflow reducing review time and boilerplate effort by 80%.",
+      "Created an agentic workflow with multiple sub-agents for different phases of the development process (from initiation to deployment).",
     ],
     tech: [
       "React",
@@ -105,6 +107,8 @@ export const experience = [
       "MongoDB",
       "PostgreSQL",
       "Ant Design",
+      "Claude code",
+      "Github Copilot",
     ],
   },
   {
@@ -127,11 +131,18 @@ export const experience = [
     location: "Kochi",
     period: "Jan 2023 – Mar 2024",
     desc: [
-      "Built scalable React + Redux + TypeScript frontend for complex microservices web app",
-      "Handled complex form validation using React Hook Forms",
-      "Developed comprehensive API documentation and integration guides",
+      "Shipped complete production features across React.js, .NET APIs and MySQL in web app for a legal-sector client in UAE.",
+      "Designed and architected frontend decisions and created reusable components, thus improving frontend performance significantly.",
+      "Built a reusable, accessible component library adopted across multiple screens in the application.",
     ],
-    tech: ["React", "Redux Toolkit", "TypeScript", "Material UI", "Azure"],
+    tech: [
+      "React",
+      "Redux Toolkit",
+      "TypeScript",
+      "Material UI",
+      "Azure",
+      "Cursor",
+    ],
   },
   {
     id: 4,
@@ -140,9 +151,10 @@ export const experience = [
     location: "Remote",
     period: "Sep 2022 – Dec 2022",
     desc: [
-      "Worked on a fact-checking web application",
+      "Frontend for a fact-checking platform in React, Next.js and TypeScript.",
       "Implemented UI designs and core functionalities",
       "Integrated fact-checking APIs into the frontend",
+      "mplemented UI screens and functionalities for a fact check bot which implemented fact checking across multiple social media platforms(X, Instagram .etc.)",
     ],
     tech: ["React", "REST APIs"],
   },
@@ -153,25 +165,25 @@ export const experience = [
     location: "Ahmedabad",
     period: "Oct 2021 – Sep 2022",
     desc: [
-      "Developed responsive web apps using React, Vue, Next.js, and Nuxt.js",
-      "Built cross-platform iOS/Android mobile apps using Ionic + Capacitor.js",
-      "Collaborated on backend services using Node.js and Firebase",
+      "React and Vue based SPA features built with precision for multiple products.",
+      "Implemented full fledged serverless application for consumer services using Firebase and Nuxt.js",
+      "Worked on a blockchain based NFT marketplace platform which was created using Nuxt.js and Solana(Blockchain).",
     ],
     tech: ["React", "Vue", "Next.js", "Node.js", "Firebase", "AWS", "MongoDB"],
   },
-  {
-    id: 6,
-    role: "Full-Stack Developer Intern",
-    company: "Quest Innovative Solutions",
-    location: "Kochi",
-    period: "Jan 2021 – Oct 2021",
-    desc: [
-      "Built RESTful APIs with Node.js and Python for internal tools",
-      "Developed frontend components using React and Angular",
-      "Participated in agile development cycles and code reviews",
-    ],
-    tech: ["JavaScript", "React", "Angular", "Python"],
-  },
+  // {
+  //   id: 6,
+  //   role: "Full-Stack Developer Intern",
+  //   company: "Quest Innovative Solutions",
+  //   location: "Kochi",
+  //   period: "Jan 2021 – Oct 2021",
+  //   desc: [
+  //     "Built RESTful APIs with Node.js and Python for internal tools",
+  //     "Developed frontend components using React and Angular",
+  //     "Participated in agile development cycles and code reviews",
+  //   ],
+  //   tech: ["JavaScript", "React", "Angular", "Python"],
+  // },
   {
     id: 7,
     role: "Freelance Web Developer",
@@ -181,6 +193,7 @@ export const experience = [
     desc: [
       "Worked on multiple projects using React, Vue, and Node.js",
       "Created UI elements, landing pages, and e-commerce portals for small-scale businesses",
+      "Delivered multiple full-stack projects (React, Node.js, Firebase) for startup restaurants and businesses, owning scope, build and deployment.",
     ],
     tech: ["React", "Vue.js", "Node.js"],
   },

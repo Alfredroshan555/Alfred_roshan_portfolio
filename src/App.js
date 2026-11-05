@@ -2,7 +2,7 @@ import "./App.scss";
 import Navbar from "./components/Navbar";
 import Intro from "./components/Intro/intro";
 // import About from "./components/About";
-// import Workflow from "./components/Workflow";
+import Workflow from "./components/Workflow";
 import WorkExperience from "./components/WorkExperience";
 // import Portfolio from "./components/Portfolio";
 import Contact from "./components/contact";
@@ -15,7 +15,7 @@ function App() {
       <main>
         <Intro />
         {/* <About /> */}
-        {/* <Workflow /> */}
+        <Workflow />
         <WorkExperience />
         {/* <Portfolio /> */}
         <Contact />

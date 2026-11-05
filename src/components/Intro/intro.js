@@ -23,7 +23,7 @@ const Intro = () => {
           <br />
           I build web and AI products
           <br />
-          <span className="accent">that ship fast.</span>
+          <span className="accent">that SCALE.</span>
         </motion.h1>
 
         {/* <motion.p className="lead" {...fadeUp(0.16)}>
