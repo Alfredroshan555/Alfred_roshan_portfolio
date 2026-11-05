@@ -17,9 +17,10 @@ export const profile = {
 };
 
 export const highlights = [
-  "5+ years shipping production apps",
+  "6+ years shipping production enterprise grade apps",
+  "10 Years of software industry knowledge building custom solutions",
   "LLMs & agents from prototype to production",
-  "Based in Kochi, open to remote",
+  // "Based in Kochi, open to remote",
 ];
 
 export const stack = [

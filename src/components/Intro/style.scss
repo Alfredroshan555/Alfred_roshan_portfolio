@@ -10,20 +10,6 @@
     padding: 136px 0 72px;
   }
 
-  // Soft warm glow centred behind the headline.
-  &::before {
-    content: "";
-    position: absolute;
-    top: -30%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1000px;
-    height: 120%;
-    background: radial-gradient(closest-side, var(--glow), transparent);
-    pointer-events: none;
-  }
-
   .container {
     position: relative;
     display: flex;
