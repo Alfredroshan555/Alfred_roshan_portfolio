@@ -13,7 +13,7 @@ export const profile = {
   location: "Kochi, Kerala, India",
   github: "https://github.com/Alfredroshan555/",
   linkedin: "https://www.linkedin.com/in/alfred-roshan-698913195/",
-  resume: "/Alfred_roshan_resume.pdf",
+  resume: "/Alfred_Roshan.pdf",
 };
 
 export const highlights = [
@@ -45,7 +45,13 @@ export const stack = [
   },
   {
     title: "Full stack",
-    items: ["React & Next.js", "TypeScript", "Node.js & NestJS", "Vue.js", "REST APIs"],
+    items: [
+      "React & Next.js",
+      "TypeScript",
+      "Node.js & NestJS",
+      "Vue.js",
+      "REST APIs",
+    ],
   },
   {
     title: "Data & cloud",
@@ -90,7 +96,15 @@ export const experience = [
       "Achieved 50% faster page loads through performance optimization",
       "Built ESG data pipelines, dashboards, and EV charging app backend using NestJS and PostgreSQL",
     ],
-    tech: ["React", "Next.js", "Redux Toolkit", "NestJS", "MongoDB", "PostgreSQL", "Ant Design"],
+    tech: [
+      "React",
+      "Next.js",
+      "Redux Toolkit",
+      "NestJS",
+      "MongoDB",
+      "PostgreSQL",
+      "Ant Design",
+    ],
   },
   {
     id: 2,

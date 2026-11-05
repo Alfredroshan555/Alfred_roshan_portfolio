@@ -36,9 +36,9 @@ const Intro = () => {
           <a href="#contact" className="btn btn-primary">
             Get in touch <FiArrowRight />
           </a>
-          <a href="#workflow" className="btn btn-ghost">
+          {/* <a href="#workflow" className="btn btn-ghost">
             How I work
-          </a>
+          </a> */}
         </motion.div>
 
         <motion.ul className="highlights" {...fadeUp(0.32)}>
