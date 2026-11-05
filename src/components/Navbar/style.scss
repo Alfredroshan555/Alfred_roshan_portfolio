@@ -1,130 +1,125 @@
 @import "../style-config/mixins.scss";
-@import "../style-config/variable.scss";
 
-.navigation {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 2rem;
-  position: fixed;
+.site-header {
+  position: sticky;
   top: 0;
-  left: 0;
-  z-index: 100;
-  @include transition-ease;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid $line;
 
-  &.scrolled {
-    @include glassmorphism-effect;
-    padding: 0.8rem 2rem;
-    width: fit-content;
-    min-width: 400px;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 20px;
-    border-radius: 50px;
-    background: rgba(10, 10, 10, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-
-    @media only screen and (max-width: 480px) {
-      min-width: 90%;
-      padding: 0.8rem 1rem;
-      top: 10px;
-    }
-  }
-
-  .logo {
-    width: 50px; // Adjusted for better proportion
-    cursor: pointer;
-    img {
-      width: 100%;
-      display: block;
-    }
-  }
-
-  .mobile_menu {
-    display: none;
-    cursor: pointer;
-    z-index: 101;
-    @include small-screen {
-      display: none; // Hidden on larger screens, verified logic below
-    }
-    @media only screen and (max-width: 768px) {
-      display: block;
-    }
-  }
-
-  .navbar {
+  .header-inner {
+    height: 64px;
     display: flex;
     align-items: center;
-    gap: 2rem;
+    justify-content: space-between;
+    gap: 16px;
+  }
 
-    @media only screen and (max-width: 768px) {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 100%;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.95);
-      backdrop-filter: blur(10px);
-      flex-direction: column;
-      justify-content: center;
-      transform: translateX(100%);
-      transition: transform 0.3s ease-in-out;
+  .wordmark {
+    font-family: $font-mono;
+    font-weight: 500;
+    font-size: 17px;
+    color: $text;
+    letter-spacing: -0.01em;
+  }
 
-      &.active {
-        transform: translateX(0);
-      }
-    }
+  .nav {
+    display: none;
+    gap: 32px;
 
-    .nav_item {
-      color: $text-secondary;
-      font-size: 16px;
+    a {
+      font-size: 15px;
       font-weight: 500;
-      cursor: pointer;
-      position: relative;
-      @include transition-ease;
+      color: $muted;
+      transition: color 0.15s ease;
 
-      &:hover,
-      &.active {
-        color: $text-accent;
-        text-shadow: 0 0 8px rgba(0, 242, 255, 0.4);
-      }
-
-      // Underline animation handled by framer-motion in JS, or CSS fallback:
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: $gradient-primary;
-        transition: width 0.3s ease;
-      }
-
-      &:hover::after {
-        width: 100%;
+      &:hover {
+        color: $text;
       }
     }
 
-    .call_to_action {
-      .btn {
-        padding: 10px 24px;
-        background: transparent;
-        border: 1px solid $text-accent;
-        color: $text-accent;
-        border-radius: 4px;
-        font-weight: 500;
-        cursor: pointer;
-        @include transition-ease;
+    @include small-screen {
+      display: flex;
+    }
 
-        &:hover {
-          background: $text-accent;
-          color: $black;
-          box-shadow: 0 0 15px rgba(0, 242, 255, 0.4);
+    // Mobile dropdown
+    &.open {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: absolute;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: $bg;
+      border-bottom: 1px solid $line;
+      padding: 8px 16px 16px;
+
+      a {
+        padding: 12px 0;
+        border-bottom: 1px solid $line;
+        font-size: 16px;
+      }
+
+      @include small-screen {
+        position: static;
+        flex-direction: row;
+        gap: 32px;
+        padding: 0;
+        border: 0;
+        background: none;
+
+        a {
+          padding: 0;
+          border: 0;
+          font-size: 15px;
         }
       }
+    }
+  }
+
+  .nav .mobile-only {
+    @include small-screen {
+      display: none;
+    }
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-btn {
+    width: 36px;
+    height: 36px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: $radius;
+    border: 1px solid $line;
+    background: transparent;
+    color: $text;
+    font-size: 16px;
+
+    &:hover {
+      background: $surface;
+    }
+  }
+
+  .menu-btn {
+    @include small-screen {
+      display: none;
+    }
+  }
+
+  .cta {
+    display: none;
+
+    @include small-screen {
+      display: inline-flex;
     }
   }
 }

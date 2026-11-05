@@ -1,80 +1,72 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import "./style.scss";
-import logo from "../../images/logo.png";
-import { scrollIntoSection } from "../utils/common";
-import { IoMdClose } from "react-icons/io";
-import { CgMenuRight } from "react-icons/cg";
-import { motion, AnimatePresence } from "framer-motion";
+
+const links = [
+  { id: "about", label: "About" },
+  { id: "workflow", label: "How I work" },
+  { id: "experience", label: "Experience" },
+];
+
+const getInitialTheme = () =>
+  document.documentElement.getAttribute("data-theme") ||
+  (window.matchMedia?.("(prefers-color-scheme: light)").matches
+    ? "light"
+    : "dark");
 
 const Navbar = () => {
-  const [mobileMenu, setMobileMenu] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState(getInitialTheme);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
+    document.documentElement.setAttribute("data-theme", theme);
+    try {
+      localStorage.setItem("theme", theme);
+    } catch (e) {}
+  }, [theme]);
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const menuClickHandler = (section) => {
-    setMobileMenu(false);
-    scrollIntoSection(section);
-  };
+  const close = () => setOpen(false);
 
   return (
-    <motion.div
-      className={`navigation ${scrolled ? "scrolled" : ""}`}
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
-      <div className="logo" onClick={() => scrollIntoSection("intro")}>
-        {/* <img src={logo} alt="Logo" /> */}
-        <span style={{ color: "#fff", fontWeight: "bold", fontSize: "24px" }}>
-          AR.
-        </span>
-      </div>
+    <header className="site-header">
+      <div className="container header-inner">
+        <a href="#intro" className="wordmark" onClick={close}>
+          <span className="accent">alfred</span>roshan
+        </a>
 
-      <div className="mobile_menu" onClick={() => setMobileMenu(!mobileMenu)}>
-        {mobileMenu ? (
-          <IoMdClose size={24} color="#fff" />
-        ) : (
-          <CgMenuRight size={24} color="#fff" />
-        )}
-      </div>
+        <nav className={`nav ${open ? "open" : ""}`} aria-label="Primary">
+          {links.map((l) => (
+            <a key={l.id} href={`#${l.id}`} onClick={close}>
+              {l.label}
+            </a>
+          ))}
+          <a href="#contact" className="mobile-only" onClick={close}>
+            Contact
+          </a>
+        </nav>
 
-      <div className={`navbar ${mobileMenu ? "active" : ""}`}>
-        {["Skills", "Portfolio", "Contact"].map((item) => (
-          <span
-            key={item}
-            className="nav_item"
-            onClick={() => menuClickHandler(item.toLowerCase())}
+        <div className="header-actions">
+          <button
+            className="icon-btn"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
-            {item}
-          </span>
-        ))}
-
-        <span
-          className="call_to_action"
-          onClick={() => menuClickHandler("contact")}
-        >
-          <motion.div
-            className="btn"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            {theme === "dark" ? <FiSun /> : <FiMoon />}
+          </button>
+          <a href="#contact" className="btn btn-primary btn-sm cta">
+            Let's talk
+          </a>
+          <button
+            className="icon-btn menu-btn"
+            aria-label="Toggle menu"
+            aria-expanded={open}
+            onClick={() => setOpen(!open)}
           >
-            Contact Now
-          </motion.div>
-        </span>
+            {open ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
       </div>
-    </motion.div>
+    </header>
   );
 };
 

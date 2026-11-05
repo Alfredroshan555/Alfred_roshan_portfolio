@@ -1,71 +1,39 @@
 import React from "react";
-import "./style.scss";
-import Section from "../shared/Section";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
-import SocialIcon from "./social-icon";
-import { scrollIntoSection } from "../utils/common";
+import { FiFileText } from "react-icons/fi";
+import { profile } from "../../data";
+import "./style.scss";
 
 const Footer = () => {
   return (
-    <Section background="dark" className="footer">
-      <div className="footer-content-wrapper">
-        <div className="footer-logo">
-          {/* <img
-                src={logo}
-                alt="JS Dev Hindi"
-            /> */}
+    <footer className="site-footer">
+      <div className="container footer-inner">
+        <div>
+          <a href="#intro" className="wordmark">
+            <span className="accent">alfred</span>roshan
+          </a>
+          <p className="tagline">{profile.role}</p>
         </div>
-        <ul className="footer-menu-items">
-          <li
-            className="footer-menu-item"
-            onClick={() => scrollIntoSection("skills")}
-          >
-            Skills
-          </li>
-          <li
-            className="footer-menu-item"
-            onClick={() => scrollIntoSection("portfolio")}
-          >
-            Portfolio
-          </li>
 
-          <li
-            className="footer-menu-item"
-            onClick={() => scrollIntoSection("contact")}
-          >
-            Contact me
-          </li>
-        </ul>
-        <div className="social-icons">
-          {/* <SocialIcon
-                color="#FF0000"
-                icon={<FaGithub />}
-                link="https://www.youtube.com"
-            /> */}
-          <SocialIcon
-            color="#0D2636"
-            link="https://github.com/Alfredroshan555/"
-            icon={<FaGithub />}
-          />
-          <SocialIcon
-            color="#0A66C2"
-            link="https://www.linkedin.com/in/alfred-roshan-698913195/"
-            icon={<FaLinkedinIn />}
-          />
-
-          {/* <SocialIcon
-                color="#E84C88"
-                link="https://www.instagram.com/gokul_vg/"
-                icon={<FaInstagram />}
-            /> */}
-        </div>
-        <div className="bottom-bar">
-          <div className="copyright-text">
-            Copyright 2022 | Alfred Roshan | All Rights Reserved
-          </div>
+        <div className="footer-links">
+          <a href={profile.github} target="_blank" rel="noreferrer" aria-label="GitHub">
+            <FaGithub />
+          </a>
+          <a href={profile.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <FaLinkedinIn />
+          </a>
+          <a href={profile.resume} target="_blank" rel="noreferrer" aria-label="Résumé">
+            <FiFileText />
+          </a>
         </div>
       </div>
-    </Section>
+      <div className="container footer-bottom">
+        <span>
+          © {new Date().getFullYear()} {profile.name} · {profile.location}
+        </span>
+        <a href={`mailto:${profile.email}`}>{profile.email}</a>
+      </div>
+    </footer>
   );
 };
 

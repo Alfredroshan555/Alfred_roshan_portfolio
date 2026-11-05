@@ -1,107 +1,74 @@
-@import "../../components/style-config/variable.scss";
-@import "../../components/style-config/mixins.scss";
+@import "../style-config/mixins.scss";
 
-.about-content-wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+.about {
+  .about-grid {
+    display: grid;
+    gap: 8px;
 
-  .about-content {
-    width: 100%;
-    max-width: 800px;
-    margin: 0 auto;
+    @include medium-screen {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 64px;
+    }
+
+    .section-head {
+      margin-bottom: 24px;
+    }
+  }
+
+  .about-body {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 16px;
+    font-size: 17px;
 
-    h2 {
-      @include typography(48px, 700, 1.2);
-      color: $white;
-      margin-bottom: 20px;
-      text-align: center;
+    strong {
+      color: $text;
+      font-weight: 600;
+    }
+  }
+
+  // Numbered grid with hairline dividers between cells.
+  .stack-grid {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1px;
+    background: $line;
+    border: 1px solid $line;
+    border-radius: $radius;
+    overflow: hidden;
+
+    @include small-screen {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .text-content {
-      text-align: center;
+    @include medium-screen {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
 
-      p {
-        color: $text-secondary;
-        font-size: 18px;
-        line-height: 1.6;
-        margin-bottom: 20px;
+  .stack-cell {
+    background: $bg;
+    padding: 28px;
 
-        .highlight {
-          color: $text-accent-secondary; // Cyan/Teal
-          font-weight: 600;
-        }
-
-        .highlight-purple {
-          color: #a855f7; // Purple
-          font-weight: 600;
-        }
-      }
+    .num {
+      font-family: $font-mono;
+      font-size: 12px;
+      color: $accent-text;
     }
 
-    .skills-section {
-      width: 100%;
+    h3 {
+      margin: 16px 0 12px;
+      font-size: 20px;
+      letter-spacing: -0.01em;
+    }
 
-      h3 {
-        @include typography(24px, 600, 1.4);
-        color: $white;
-        margin-bottom: 30px;
-        text-align: center;
-      }
-
-      .skills-list {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-
-        @include medium-screen {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 30px;
-        }
-
-        .skill-bar-container {
-          width: 100%;
-
-          .skill-info {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 8px;
-
-            .skill-name {
-              color: $white;
-              font-size: 16px;
-              font-weight: 500;
-            }
-
-            .skill-percentage {
-              color: #a855f7; // Purple
-              font-weight: 600;
-            }
-          }
-
-          .progress-bar-bg {
-            width: 100%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            overflow: hidden;
-
-            .progress-bar-fill {
-              height: 100%;
-              background: linear-gradient(
-                90deg,
-                #a855f7 0%,
-                $text-accent-secondary 100%
-              );
-              border-radius: 4px;
-            }
-          }
-        }
-      }
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 15px;
     }
   }
 }

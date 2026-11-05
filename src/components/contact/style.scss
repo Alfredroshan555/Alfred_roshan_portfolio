@@ -1,16 +1,113 @@
 @import "../style-config/mixins.scss";
-@import "../style-config/variable.scss";
 
-.contact_content_wrapper {
-  display: flex;
-  align-items: flex-start;
-  gap: 4rem;
-  margin-top: 3rem;
-  max-width: 1200px;
-  margin: 3rem auto 0;
+.contact {
+  .contact-grid {
+    display: grid;
+    gap: 48px;
 
-  @media only screen and (max-width: 1300px) {
+    @include small-screen {
+      grid-template-columns: 1fr 1.2fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    @include medium-screen {
+      gap: 64px;
+    }
+  }
+
+  .contact-list {
+    list-style: none;
+    display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 14px;
+    font-size: 15px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      svg {
+        color: $accent-text;
+        flex-shrink: 0;
+      }
+    }
+
+    a {
+      color: $text;
+      word-break: break-all;
+
+      &:hover {
+        color: $accent-text;
+      }
+    }
+  }
+
+  .contact-form {
+    display: grid;
+    gap: 16px;
+    padding: 24px;
+    border: 1px solid $line;
+    border-radius: $radius;
+    background: $surface;
+
+    @include medium-screen {
+      grid-template-columns: 1fr 1fr;
+      padding: 32px;
+    }
+
+    .btn {
+      justify-self: start;
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: default;
+      }
+    }
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &.full {
+      grid-column: 1 / -1;
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 500;
+      color: $text;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      font: inherit;
+      font-size: 15px;
+      color: $text;
+      background: $bg;
+      border: 1px solid $line-strong;
+      border-radius: $radius;
+      padding: 11px 12px;
+      outline: none;
+      transition: border-color 0.15s ease;
+
+      &:focus {
+        border-color: $accent;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .error {
+      font-size: 13px;
+      color: $accent-text;
+    }
   }
 }

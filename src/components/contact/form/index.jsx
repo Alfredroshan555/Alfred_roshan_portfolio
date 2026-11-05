@@ -3,132 +3,101 @@ import { send } from "emailjs-com";
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./style.scss";
-import { motion } from "framer-motion";
+
+const Field = ({ label, error, children, full }) => (
+  <label className={`field ${full ? "full" : ""}`}>
+    <span className="label">{label}</span>
+    {children}
+    {error && <span className="error">{error}</span>}
+  </label>
+);
 
 const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitting },
   } = useForm();
 
-  const onSubmit = (data) => {
+  const onSubmit = (data) =>
     send("service_z3f7myd", "template_op1437r", data, "MEiNQawFFbesm3s_l")
-      .then((res) => {
-        console.log("Success!", res.status, res.text);
-        formSuccess();
+      .then(() => {
+        toast.success("Thanks! Your message is on its way.");
+        reset();
       })
       .catch((err) => {
-        toast.error("Failed to submit form!!");
-        document.getElementById("queryForm").reset();
+        toast.error("Couldn't send the message. Please email me directly.");
         console.log("Failed!", err);
       });
-  };
 
-  const formSuccess = () => {
-    toast.success("Thanks for submitting!!");
-    document.getElementById("queryForm").reset();
-  };
+  const theme =
+    document.documentElement.getAttribute("data-theme") === "light"
+      ? "light"
+      : "dark";
 
   return (
-    <motion.div
-      className="query_form"
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.6 }}
-      viewport={{ once: true }}
-    >
-      <ToastContainer position="bottom-right" theme="dark" />
-      <form id="queryForm" onSubmit={handleSubmit(onSubmit)}>
-        <div className="input_field">
+    <div className="contact-form-wrap">
+      <ToastContainer position="bottom-right" theme={theme} />
+      <form className="contact-form" onSubmit={handleSubmit(onSubmit)} noValidate>
+        <Field label="Name" error={errors.form_name?.message}>
           <input
             type="text"
-            name="form_name"
-            placeholder="Name"
-            {...register("form_name", {
-              required: "Name is required!",
-            })}
+            autoComplete="name"
+            {...register("form_name", { required: "Name is required" })}
           />
-          {errors.form_name?.message && (
-            <p className="error">{errors.form_name?.message}</p>
-          )}
-        </div>
-        <div className="input_field">
+        </Field>
+        <Field label="Email" error={errors.reply_to?.message}>
           <input
-            type="text"
-            name="reply_to"
-            placeholder="Email"
+            type="email"
+            autoComplete="email"
             {...register("reply_to", {
-              required: "Email is required!",
+              required: "Email is required",
               pattern: {
                 value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                message: "Invalid email format ",
+                message: "Enter a valid email",
               },
             })}
           />
-          {errors.reply_to?.message && (
-            <p className="error">{errors.reply_to?.message}</p>
-          )}
-        </div>
-        <div className="input_field">
+        </Field>
+        <Field label="Phone" error={errors.phone_number?.message}>
           <input
-            type="text"
-            name="phone_number"
-            placeholder="Phone Number"
+            type="tel"
+            autoComplete="tel"
             {...register("phone_number", {
-              required: "Phone number is required!",
-              minLength: {
-                value: 8,
-                message: "Phone number not valid.",
-              },
+              required: "Phone number is required",
+              minLength: { value: 8, message: "Enter a valid phone number" },
             })}
           />
-          {errors.phone_number?.message && (
-            <p className="error">{errors.phone_number?.message}</p>
-          )}
-        </div>
-        <div className="input_field">
+        </Field>
+        <Field label="Subject" error={errors.subject?.message}>
           <input
             type="text"
-            name="subject"
-            placeholder="Subject"
             {...register("subject", {
-              required: "Subject is required!",
-              minLength: {
-                value: 8,
-                message: "Minimum 10 characters required",
-              },
+              required: "Subject is required",
+              minLength: { value: 8, message: "At least 8 characters" },
             })}
           />
-          {errors.subject?.message && (
-            <p className="error">{errors.subject?.message}</p>
-          )}
-        </div>
-        <div className="input_field full-width">
+        </Field>
+        <Field label="Message" error={errors.message?.message} full>
           <textarea
-            className="textarea"
-            name="message"
-            placeholder="Your message"
+            rows={5}
             {...register("message", {
               required: "Message is required",
-              minLength: {
-                value: 20,
-                message: "Minimum 20 characters required",
-              },
-              maxLength: {
-                value: 500,
-                message: "Maximum 500 characters allowed",
-              },
+              minLength: { value: 20, message: "At least 20 characters" },
+              maxLength: { value: 500, message: "500 characters max" },
             })}
           />
-          {errors.message?.message && (
-            <p className="error">{errors.message?.message}</p>
-          )}
-        </div>
-        <button type="submit">Submit</button>
+        </Field>
+        <button
+          type="submit"
+          className="btn btn-primary"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Sending…" : "Send message"}
+        </button>
       </form>
-    </motion.div>
+    </div>
   );
 };
 
