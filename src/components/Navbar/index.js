@@ -21,7 +21,7 @@ const getInitialTheme = () =>
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [theme, setTheme] = useState(getInitialTheme);
+  const [theme] = useState(getInitialTheme);
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
