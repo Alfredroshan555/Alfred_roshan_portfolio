@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FiCheck, FiArrowRight } from "react-icons/fi";
 import { highlights } from "../../data";
+import portrait from "../../images/alfred-portrait.webp";
 import "./style.scss";
 
 const fadeUp = (delay = 0) => ({
@@ -13,41 +14,52 @@ const fadeUp = (delay = 0) => ({
 const Intro = () => {
   return (
     <section className="hero" id="intro">
-      <div className="container">
-        <motion.p className="eyebrow" {...fadeUp(0)}>
-          AI-Native Full-Stack Engineer
-        </motion.p>
+      <div className="container hero-grid">
+        <div className="hero-copy">
+          <motion.p className="eyebrow" {...fadeUp(0)}>
+            AI-Native Full-Stack Engineer
+          </motion.p>
 
-        <motion.h1 {...fadeUp(0.08)}>
-          Alfred Roshan
-          <br />
-          I build web and AI products
-          <br />
-          <span className="accent">that SCALE.</span>
-        </motion.h1>
+          <motion.h1 {...fadeUp(0.08)}>
+            Alfred Roshan
+            <br />
+            I build web and AI products
+            <br />
+            <span className="accent">that SCALE.</span>
+          </motion.h1>
 
-        {/* <motion.p className="lead" {...fadeUp(0.16)}>
+          {/* <motion.p className="lead" {...fadeUp(0.16)}>
           I build full-stack products with React, Node.js and the cloud, and
           use LLMs, AI coding tools and agentic workflows at every step, from
           development to deployment and delivery.
         </motion.p> */}
 
-        <motion.div className="actions" {...fadeUp(0.24)}>
-          <a href="#contact" className="btn btn-primary">
-            Get in touch <FiArrowRight />
-          </a>
-          {/* <a href="#workflow" className="btn btn-ghost">
+          <motion.div className="actions" {...fadeUp(0.24)}>
+            <a href="#contact" className="btn btn-primary">
+              Get in touch <FiArrowRight />
+            </a>
+            {/* <a href="#workflow" className="btn btn-ghost">
             How I work
           </a> */}
-        </motion.div>
+          </motion.div>
 
-        <motion.ul className="highlights" {...fadeUp(0.32)}>
-          {highlights.map((h) => (
-            <li key={h}>
-              <FiCheck className="accent" /> {h}
-            </li>
-          ))}
-        </motion.ul>
+          <motion.ul className="highlights" {...fadeUp(0.32)}>
+            {highlights.map((h) => (
+              <li key={h}>
+                <FiCheck className="accent" /> {h}
+              </li>
+            ))}
+          </motion.ul>
+        </div>
+
+        <motion.figure
+          className="hero-photo"
+          initial={{ opacity: 0, scale: 0.97 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.15, ease: "easeOut" }}
+        >
+          <img src={portrait} alt="Portrait of Alfred Roshan" />
+        </motion.figure>
       </div>
     </section>
   );
