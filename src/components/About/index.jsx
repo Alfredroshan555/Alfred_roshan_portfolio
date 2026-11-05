@@ -8,23 +8,20 @@ const About = () => {
       <div className="container about-grid">
         <div className="section-head">
           <p className="eyebrow">About</p>
-          <h2>Full-stack engineer, AI native.</h2>
+          <h2>Engineer first, product minded.</h2>
         </div>
 
         <div className="about-body">
           <p>
-            I'm a full-stack software engineer with{" "}
-            <strong>5+ years</strong> of experience building high-performing
-            web applications with React, Next.js, Node.js and NestJS, backed by
-            MongoDB and PostgreSQL and deployed to AWS, Azure and Firebase.
+            I'm a full-stack software engineer with <strong>10 year</strong> of
+            hands-on experience building high-performing web applications,
+            mostly with React and Redux on the front end.
           </p>
           <p>
-            Today I work <strong>AI native</strong>: I build features on top of
-            LLMs, wire up agents with tool calling and MCP, and run my own
-            delivery through agentic workflows, with coding agents for
-            development, AI-assisted testing and review, and automated
-            pipelines to ship. The result is the same production quality,
-            delivered a lot faster.
+            On the back end I work with Node.js (Express and NestJS), MongoDB
+            and PostgreSQL, and deploy to Firebase, AWS and Azure. I care about
+            clean architecture, fast pages and shipping things people actually
+            use.
           </p>
         </div>
       </div>
