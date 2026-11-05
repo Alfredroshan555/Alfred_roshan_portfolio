@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
+import { useEffect, useState } from "react";
+import {
+  FiMenu,
+  FiX,
+  // FiSun,
+  // FiMoon
+} from "react-icons/fi";
 import "./style.scss";
 
 const links = [
